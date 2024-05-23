@@ -20,6 +20,11 @@ import pickle as pkl
 import gc
 from torchinfo import summary
 from collections import defaultdict
+
+import torch
+from collections import OrderedDict
+from torch.nn.parallel import DistributedDataParallel as DDP
+
 try:
     from data_utils.datasets import get_data_loader, DSET_NAME_TO_OBJECT
     from models.avit import build_avit
@@ -172,10 +177,10 @@ class Trainer:
             model_state = checkpoint['model_state']
         else:
             model_state = checkpoint
-        try: # Try to load with DDP Wrapper
+        try:  # Try to load with DDP Wrapper
             self.model.load_state_dict(model_state)
-        except: # If that fails, either try to load into module or strip DDP prefix
-            if hasattr(self.model, 'module'):
+        except:  # If that fails, either try to load into module or strip DDP prefix
+            if isinstance(self.model, DDP):
                 self.model.module.load_state_dict(model_state)
             else:
                 new_state_dict = OrderedDict()
@@ -184,27 +189,35 @@ class Trainer:
                     name = key[7:]
                     new_state_dict[name] = val
                 self.model.load_state_dict(new_state_dict)
-        
-        if self.params.resuming:  #restore checkpoint is used for finetuning as well as resuming. If finetuning (i.e., not resuming), restore checkpoint does not load optimizer state, instead uses config specified lr.
+
+        if self.params.resuming:  # restore checkpoint is used for finetuning as well as resuming. If finetuning (i.e., not resuming), restore checkpoint does not load optimizer state, instead uses config specified lr.
             self.iters = checkpoint['iters']
             self.optimizer.load_state_dict(checkpoint['optimizer_state_dict'])
             self.startEpoch = checkpoint['epoch']
             self.epoch = self.startEpoch
         else:
             self.iters = 0
+
         if self.params.pretrained:
-            if self.params.freeze_middle:
-                self.model.module.freeze_middle()
-            elif self.params.freeze_processor:
-                self.model.module.freeze_processor()
+            if isinstance(self.model, DDP):
+                model_to_modify = self.model.module
             else:
-                self.model.module.unfreeze()
+                model_to_modify = self.model
+
+            if self.params.freeze_middle:
+                model_to_modify.freeze_middle()
+            elif self.params.freeze_processor:
+                model_to_modify.freeze_processor()
+            else:
+                model_to_modify.unfreeze()
+
             # See how much we need to expand the projections
             exp_proj = 0
-            # Iterate through the appended datasets and add on enough embeddings for all of them. 
+            # Iterate through the appended datasets and add on enough embeddings for all of them.
             for add_on in self.params.append_datasets:
                 exp_proj += len(DSET_NAME_TO_OBJECT[add_on]._specifics()[2])
-            self.model.module.expand_projections(exp_proj)
+            model_to_modify.expand_projections(exp_proj)
+
         checkpoint = None
         self.model = self.model.to(self.device)
 
@@ -528,10 +541,6 @@ if __name__ == '__main__':
         logging_utils.log_versions()
         params.log()
 
-    if global_rank==0:
-        logging_utils.log_to_file(logger_name=None, log_filename=os.path.join(expDir, 'out.log'))
-        logging_utils.log_versions()
-        params.log()
 
     params['log_to_wandb'] = (global_rank==0) and params['log_to_wandb']
     params['log_to_screen'] = (global_rank==0) and params['log_to_screen']
