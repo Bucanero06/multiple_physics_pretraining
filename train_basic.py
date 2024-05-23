@@ -494,8 +494,8 @@ if __name__ == '__main__':
     parser = argparse.ArgumentParser()
     parser.add_argument("--run_name", default='00', type=str)
     parser.add_argument("--use_ddp", action='store_true', help='Use distributed data parallel')
-    parser.add_argument("--yaml_config", default='./config/multi_ds.yaml', type=str)
-    parser.add_argument("--config", default='basic_config', type=str)
+    parser.add_argument("--yaml_config", default='./config/mpp_avit_s_config.yaml', type=str)
+    parser.add_argument("--config", default='frozen', type=str)
     parser.add_argument("--sweep_id", default=None, type=str, help='sweep config from ./configs/sweeps.yaml')
     args = parser.parse_args()
     params = YParams(os.path.abspath(args.yaml_config), args.config)
@@ -553,6 +553,7 @@ if __name__ == '__main__':
             hparams[str(key)] = str(value)
         with open(os.path.join(expDir, 'hyperparams.yaml'), 'w') as hpfile:
             yaml.dump(hparams,  hpfile )
+
     trainer = Trainer(params, global_rank, local_rank, device, sweep_id=args.sweep_id)
     if args.sweep_id and trainer.global_rank==0:
         print(args.sweep_id, trainer.params.entity, trainer.params.project)
