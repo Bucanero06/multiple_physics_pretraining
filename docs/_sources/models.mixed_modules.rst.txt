@@ -1,0 +1,11 @@
+models.mixed_modules
+====================
+
+.. automodule:: models.mixed_modules
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. inheritance-diagram:: models.mixed_modules
+    :parts: 1
+

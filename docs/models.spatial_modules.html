@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>models.spatial_modules &mdash; Multiple Physics Pretrained 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="models.time_modules" href="models.time_modules.html" />
+    <link rel="prev" title="models.shared_modules" href="models.shared_modules.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Multiple Physics Pretrained
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="autodocumentation_python.html">autodocumentation_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_utils.datasets.html">data_utils.datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_utils.hdf5_datasets.html">data_utils.hdf5_datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_utils.mixed_dset_sampler.html">data_utils.mixed_dset_sampler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_utils.pdebench_download_utils.download_pdebench_data.html">data_utils.pdebench_download_utils.download_pdebench_data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.avit.html">models.avit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.mixed_modules.html">models.mixed_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.shared_modules.html">models.shared_modules</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">models.spatial_modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#models.spatial_modules.AxialAttentionBlock"><code class="docutils literal notranslate"><span class="pre">AxialAttentionBlock</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#models.spatial_modules.AxialAttentionBlock.forward"><code class="docutils literal notranslate"><span class="pre">AxialAttentionBlock.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#models.spatial_modules.RMSInstanceNorm2d"><code class="docutils literal notranslate"><span class="pre">RMSInstanceNorm2d</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#models.spatial_modules.RMSInstanceNorm2d.forward"><code class="docutils literal notranslate"><span class="pre">RMSInstanceNorm2d.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#models.spatial_modules.SubsampledLinear"><code class="docutils literal notranslate"><span class="pre">SubsampledLinear</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#models.spatial_modules.SubsampledLinear.forward"><code class="docutils literal notranslate"><span class="pre">SubsampledLinear.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#models.spatial_modules.build_space_block"><code class="docutils literal notranslate"><span class="pre">build_space_block()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#models.spatial_modules.hMLP_output"><code class="docutils literal notranslate"><span class="pre">hMLP_output</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#models.spatial_modules.hMLP_output.forward"><code class="docutils literal notranslate"><span class="pre">hMLP_output.forward()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#models.spatial_modules.hMLP_stem"><code class="docutils literal notranslate"><span class="pre">hMLP_stem</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#models.spatial_modules.hMLP_stem.forward"><code class="docutils literal notranslate"><span class="pre">hMLP_stem.forward()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="models.time_modules.html">models.time_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.command_execution.html">shared.command_execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.config.html">shared.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.configuration_parser.html">shared.configuration_parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.data_processing_utils.html">shared.data_processing_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.file_directory_ops.html">shared.file_directory_ops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.logging.html">shared.logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.string_dict_utils.html">shared.string_dict_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.tmp_shared.html">shared.tmp_shared</a></li>
+<li class="toctree-l1"><a class="reference internal" href="train_basic.html">train_basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.YParams.html">utils.YParams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.logging_utils.html">utils.logging_utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Multiple Physics Pretrained</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">models.spatial_modules</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/models.spatial_modules.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-models.spatial_modules">
+<span id="models-spatial-modules"></span><h1>models.spatial_modules<a class="headerlink" href="#module-models.spatial_modules" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="models.spatial_modules.AxialAttentionBlock">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.spatial_modules.</span></span><span class="sig-name descname"><span class="pre">AxialAttentionBlock</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hidden_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">768</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">num_heads</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">12</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">drop_path</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">layer_scale_init_value</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-06</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bias_type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">'rel'</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/spatial_modules.html#AxialAttentionBlock"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.spatial_modules.AxialAttentionBlock" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.spatial_modules.AxialAttentionBlock.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bcs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/spatial_modules.html#AxialAttentionBlock.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.spatial_modules.AxialAttentionBlock.forward" title="Link to this definition"></a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.spatial_modules.RMSInstanceNorm2d">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.spatial_modules.</span></span><span class="sig-name descname"><span class="pre">RMSInstanceNorm2d</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">affine</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">eps</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-08</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/spatial_modules.html#RMSInstanceNorm2d"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.spatial_modules.RMSInstanceNorm2d" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.spatial_modules.RMSInstanceNorm2d.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/spatial_modules.html#RMSInstanceNorm2d.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.spatial_modules.RMSInstanceNorm2d.forward" title="Link to this definition"></a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.spatial_modules.SubsampledLinear">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.spatial_modules.</span></span><span class="sig-name descname"><span class="pre">SubsampledLinear</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dim_in</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dim_out</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">subsample_in</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">True</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/spatial_modules.html#SubsampledLinear"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.spatial_modules.SubsampledLinear" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Cross between a linear layer and EmbeddingBag - takes in input
+and list of indices denoting which state variables from the state
+vocab are present and only performs the linear layer on rows/cols relevant
+to those state variables</p>
+<p>Assumes (… C) input</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.spatial_modules.SubsampledLinear.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/spatial_modules.html#SubsampledLinear.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.spatial_modules.SubsampledLinear.forward" title="Link to this definition"></a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="models.spatial_modules.build_space_block">
+<span class="sig-prename descclassname"><span class="pre">models.spatial_modules.</span></span><span class="sig-name descname"><span class="pre">build_space_block</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/spatial_modules.html#build_space_block"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.spatial_modules.build_space_block" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.spatial_modules.hMLP_output">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.spatial_modules.</span></span><span class="sig-name descname"><span class="pre">hMLP_output</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(16,</span> <span class="pre">16)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">out_chans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">embed_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">768</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/spatial_modules.html#hMLP_output"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.spatial_modules.hMLP_output" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Patch to Image De-bedding</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.spatial_modules.hMLP_output.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">state_labels</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/spatial_modules.html#hMLP_output.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.spatial_modules.hMLP_output.forward" title="Link to this definition"></a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="models.spatial_modules.hMLP_stem">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">models.spatial_modules.</span></span><span class="sig-name descname"><span class="pre">hMLP_stem</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">patch_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">(16,</span> <span class="pre">16)</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">in_chans</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">3</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">embed_dim</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">768</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/spatial_modules.html#hMLP_stem"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.spatial_modules.hMLP_stem" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code></p>
+<p>Image to Patch Embedding</p>
+<dl class="py method">
+<dt class="sig sig-object py" id="models.spatial_modules.hMLP_stem.forward">
+<span class="sig-name descname"><span class="pre">forward</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/models/spatial_modules.html#hMLP_stem.forward"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#models.spatial_modules.hMLP_stem.forward" title="Link to this definition"></a></dt>
+<dd><p>Defines the computation performed at every call.</p>
+<p>Should be overridden by all subclasses.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>Although the recipe for forward pass needs to be defined within
+this function, one should call the <code class="xref py py-class docutils literal notranslate"><span class="pre">Module</span></code> instance afterwards
+instead of this since the former takes care of running the
+registered hooks while the latter silently ignores them.</p>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+<div class="graphviz"><img src="_images/inheritance-42c0a2c62018ac5fc1c6309f501f7c168b363fe0.png" alt="Inheritance diagram of models.spatial_modules" usemap="#inheritancea414de2e3e" class="inheritance graphviz" /></div>
+<map id="inheritancea414de2e3e" name="inheritancea414de2e3e">
+<area shape="rect" id="node1" href="#models.spatial_modules.AxialAttentionBlock" target="_top" title="AxialAttentionBlock" alt="" coords="129,5,280,31"/>
+<area shape="rect" id="node3" href="#models.spatial_modules.RMSInstanceNorm2d" target="_top" title="RMSInstanceNorm2d" alt="" coords="125,55,284,80"/>
+<area shape="rect" id="node4" href="#models.spatial_modules.SubsampledLinear" target="_top" title="Cross between a linear layer and EmbeddingBag &#45; takes in input " alt="" coords="133,104,276,129"/>
+<area shape="rect" id="node5" href="#models.spatial_modules.hMLP_output" target="_top" title="Patch to Image De&#45;bedding" alt="" coords="151,153,258,179"/>
+<area shape="rect" id="node6" href="#models.spatial_modules.hMLP_stem" target="_top" title="Image to Patch Embedding" alt="" coords="156,203,253,228"/>
+</map></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="models.shared_modules.html" class="btn btn-neutral float-left" title="models.shared_modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="models.time_modules.html" class="btn btn-neutral float-right" title="models.time_modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

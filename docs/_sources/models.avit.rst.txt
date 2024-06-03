@@ -1,0 +1,11 @@
+models.avit
+===========
+
+.. automodule:: models.avit
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. inheritance-diagram:: models.avit
+    :parts: 1
+

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>data_utils.pdebench_download_utils.download_pdebench_data &mdash; Multiple Physics Pretrained 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../../_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../index.html" class="icon icon-home">
+            Multiple Physics Pretrained
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../autodocumentation_python.html">autodocumentation_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_utils.datasets.html">data_utils.datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_utils.hdf5_datasets.html">data_utils.hdf5_datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_utils.mixed_dset_sampler.html">data_utils.mixed_dset_sampler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../data_utils.pdebench_download_utils.download_pdebench_data.html">data_utils.pdebench_download_utils.download_pdebench_data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models.avit.html">models.avit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models.mixed_modules.html">models.mixed_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models.shared_modules.html">models.shared_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models.spatial_modules.html">models.spatial_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../models.time_modules.html">models.time_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../shared.command_execution.html">shared.command_execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../shared.config.html">shared.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../shared.configuration_parser.html">shared.configuration_parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../shared.data_processing_utils.html">shared.data_processing_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../shared.file_directory_ops.html">shared.file_directory_ops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../shared.logging.html">shared.logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../shared.string_dict_utils.html">shared.string_dict_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../shared.tmp_shared.html">shared.tmp_shared</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../train_basic.html">train_basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.YParams.html">utils.YParams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../utils.logging_utils.html">utils.logging_utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Multiple Physics Pretrained</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">data_utils.pdebench_download_utils.download_pdebench_data</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for data_utils.pdebench_download_utils.download_pdebench_data</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">argparse</span>
+<span class="kn">from</span> <span class="nn">concurrent.futures</span> <span class="kn">import</span> <span class="n">ThreadPoolExecutor</span><span class="p">,</span> <span class="n">as_completed</span>
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">from</span> <span class="nn">torchvision.datasets.utils</span> <span class="kn">import</span> <span class="n">download_url</span>
+
+<div class="viewcode-block" id="parse_metadata">
+<a class="viewcode-back" href="../../../data_utils.pdebench_download_utils.download_pdebench_data.html#data_utils.pdebench_download_utils.download_pdebench_data.parse_metadata">[docs]</a>
+<span class="k">def</span> <span class="nf">parse_metadata</span><span class="p">(</span><span class="n">pde_names</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    This function parses the argument to filter the metadata of files that need to be downloaded.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">    pde_names: List containing the name of the PDE to be downloaded</span>
+
+<span class="sd">    Options for pde_names:</span>
+<span class="sd">    - Advection</span>
+<span class="sd">    - Burgers</span>
+<span class="sd">    - 1D_CFD</span>
+<span class="sd">    - Diff-Sorp</span>
+<span class="sd">    - 1D_ReacDiff</span>
+<span class="sd">    - 2D_CFD</span>
+<span class="sd">    - Darcy</span>
+<span class="sd">    - 2D_ReacDiff</span>
+<span class="sd">    - NS_Incom</span>
+<span class="sd">    - SWE</span>
+<span class="sd">    - 3D_CFD</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">    pde_df : Filtered dataframe containing metadata of files to be downloaded</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">meta_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;/data_utils/pdebench_data_urls.csv&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Ensure the pde_name is defined</span>
+    <span class="n">pde_list</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="s2">&quot;advection&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;burgers&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;1d_cfd&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;diff_sorp&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;1d_reacdiff&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2d_cfd&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;darcy&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;2d_reacdiff&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ns_incom&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;swe&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;3d_cfd&quot;</span><span class="p">,</span>
+    <span class="p">]</span>
+
+    <span class="k">assert</span> <span class="nb">all</span><span class="p">([</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">in</span> <span class="n">pde_list</span> <span class="k">for</span> <span class="n">name</span> <span class="ow">in</span> <span class="n">pde_names</span><span class="p">]),</span> <span class="s2">&quot;PDE name not defined.&quot;</span>
+
+    <span class="c1"># Filter the files to be downloaded</span>
+    <span class="n">meta_df</span><span class="p">[</span><span class="s2">&quot;PDE&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">meta_df</span><span class="p">[</span><span class="s2">&quot;PDE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">pde_df</span> <span class="o">=</span> <span class="n">meta_df</span><span class="p">[</span><span class="n">meta_df</span><span class="p">[</span><span class="s2">&quot;PDE&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">pde_names</span><span class="p">)]</span>
+
+    <span class="k">return</span> <span class="n">pde_df</span></div>
+
+
+<div class="viewcode-block" id="download_file">
+<a class="viewcode-back" href="../../../data_utils.pdebench_download_utils.download_pdebench_data.html#data_utils.pdebench_download_utils.download_pdebench_data.download_file">[docs]</a>
+<span class="k">def</span> <span class="nf">download_file</span><span class="p">(</span><span class="n">root_folder</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span>
+    <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root_folder</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Path&quot;</span><span class="p">])</span>
+    <span class="n">download_url</span><span class="p">(</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;URL&quot;</span><span class="p">],</span> <span class="n">file_path</span><span class="p">,</span> <span class="n">row</span><span class="p">[</span><span class="s2">&quot;Filename&quot;</span><span class="p">],</span> <span class="n">md5</span><span class="o">=</span><span class="n">row</span><span class="p">[</span><span class="s2">&quot;MD5&quot;</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="download_data">
+<a class="viewcode-back" href="../../../data_utils.pdebench_download_utils.download_pdebench_data.html#data_utils.pdebench_download_utils.download_pdebench_data.download_data">[docs]</a>
+<span class="k">def</span> <span class="nf">download_data</span><span class="p">(</span><span class="n">root_folder</span><span class="p">,</span> <span class="n">pde_name</span><span class="p">,</span> <span class="n">max_workers</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">cpu_count</span><span class="p">()):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Download data splits specific to a given PDE.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">    root_folder: The root folder where the data will be downloaded</span>
+<span class="sd">    pde_name   : The name of the PDE for which the data to be downloaded</span>
+<span class="sd">    max_workers: The maximum number of threads to use for downloading</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Downloading data for </span><span class="si">{</span><span class="n">pde_name</span><span class="si">}</span><span class="s2"> ...&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Load and parse metadata csv file</span>
+    <span class="n">pde_df</span> <span class="o">=</span> <span class="n">parse_metadata</span><span class="p">(</span><span class="n">pde_name</span><span class="p">)</span>
+
+    <span class="c1"># Use ThreadPoolExecutor for parallel downloads</span>
+    <span class="k">with</span> <span class="n">ThreadPoolExecutor</span><span class="p">(</span><span class="n">max_workers</span><span class="o">=</span><span class="n">max_workers</span><span class="p">)</span> <span class="k">as</span> <span class="n">executor</span><span class="p">:</span>
+        <span class="n">future_to_url</span> <span class="o">=</span> <span class="p">{</span><span class="n">executor</span><span class="o">.</span><span class="n">submit</span><span class="p">(</span><span class="n">download_file</span><span class="p">,</span> <span class="n">root_folder</span><span class="p">,</span> <span class="n">row</span><span class="p">):</span> <span class="n">row</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="n">pde_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()}</span>
+
+        <span class="k">for</span> <span class="n">future</span> <span class="ow">in</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">as_completed</span><span class="p">(</span><span class="n">future_to_url</span><span class="p">),</span> <span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">future_to_url</span><span class="p">)):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">future</span><span class="o">.</span><span class="n">result</span><span class="p">()</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">exc</span><span class="p">:</span>
+                <span class="n">row</span> <span class="o">=</span> <span class="n">future_to_url</span><span class="p">[</span><span class="n">future</span><span class="p">]</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">row</span><span class="p">[</span><span class="s1">&#39;Filename&#39;</span><span class="p">]</span><span class="si">}</span><span class="s2"> generated an exception: </span><span class="si">{</span><span class="n">exc</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Download complete!&quot;</span><span class="p">)</span></div>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s2">&quot;__main__&quot;</span><span class="p">:</span>
+    <span class="n">arg_parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span>
+        <span class="n">prog</span><span class="o">=</span><span class="s2">&quot;Download Script&quot;</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s2">&quot;Helper script to download the PDEBench datasets&quot;</span><span class="p">,</span>
+        <span class="n">epilog</span><span class="o">=</span><span class="s2">&quot;&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">arg_parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--root_folder&quot;</span><span class="p">,</span>
+        <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+        <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Root folder where the data will be downloaded&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+    <span class="n">arg_parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span>
+        <span class="s2">&quot;--pde_name&quot;</span><span class="p">,</span>
+        <span class="n">action</span><span class="o">=</span><span class="s2">&quot;append&quot;</span><span class="p">,</span>
+        <span class="n">help</span><span class="o">=</span><span class="s2">&quot;Name of the PDE dataset to download. You can use this flag multiple times to download multiple datasets&quot;</span><span class="p">,</span>
+    <span class="p">)</span>
+
+    <span class="n">args</span> <span class="o">=</span> <span class="n">arg_parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
+
+    <span class="n">download_data</span><span class="p">(</span><span class="n">args</span><span class="o">.</span><span class="n">root_folder</span><span class="p">,</span> <span class="n">args</span><span class="o">.</span><span class="n">pde_name</span><span class="p">)</span>
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

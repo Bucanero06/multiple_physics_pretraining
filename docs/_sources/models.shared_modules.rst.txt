@@ -1,0 +1,11 @@
+models.shared_modules
+=====================
+
+.. automodule:: models.shared_modules
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. inheritance-diagram:: models.shared_modules
+    :parts: 1
+

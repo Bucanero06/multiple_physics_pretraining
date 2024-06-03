@@ -1,0 +1,42 @@
+.. Multiple Physics Pretrained documentation master file, created by
+   sphinx-quickstart on Mon Jun  3 15:46:05 2024.
+   You can adapt this file completely to your liking, but it should at least
+   contain the root `toctree` directive.
+
+Welcome to Multiple Physics Pretrained's documentation!
+=======================================================
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Contents:
+
+   autodocumentation_python
+   data_utils.datasets
+   data_utils.hdf5_datasets
+   data_utils.mixed_dset_sampler
+   data_utils.pdebench_download_utils.download_pdebench_data
+   models.avit
+   models.mixed_modules
+   models.shared_modules
+   models.spatial_modules
+   models.time_modules
+   shared.command_execution
+   shared.config
+   shared.configuration_parser
+   shared.data_processing_utils
+   shared.file_directory_ops
+   shared.logging
+   shared.string_dict_utils
+   shared.tmp_shared
+   train_basic
+   utils.YParams
+   utils.logging_utils
+
+
+
+Indices and tables
+==================
+
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

@@ -1,0 +1,11 @@
+data_utils.hdf5_datasets
+========================
+
+.. automodule:: data_utils.hdf5_datasets
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. inheritance-diagram:: data_utils.hdf5_datasets
+    :parts: 1
+

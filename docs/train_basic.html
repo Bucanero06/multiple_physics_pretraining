@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>train_basic &mdash; Multiple Physics Pretrained 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="utils.YParams" href="utils.YParams.html" />
+    <link rel="prev" title="shared.tmp_shared" href="shared.tmp_shared.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Multiple Physics Pretrained
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="autodocumentation_python.html">autodocumentation_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_utils.datasets.html">data_utils.datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_utils.hdf5_datasets.html">data_utils.hdf5_datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_utils.mixed_dset_sampler.html">data_utils.mixed_dset_sampler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_utils.pdebench_download_utils.download_pdebench_data.html">data_utils.pdebench_download_utils.download_pdebench_data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.avit.html">models.avit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.mixed_modules.html">models.mixed_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.shared_modules.html">models.shared_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.spatial_modules.html">models.spatial_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.time_modules.html">models.time_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.command_execution.html">shared.command_execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.config.html">shared.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.configuration_parser.html">shared.configuration_parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.data_processing_utils.html">shared.data_processing_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.file_directory_ops.html">shared.file_directory_ops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.logging.html">shared.logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.string_dict_utils.html">shared.string_dict_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.tmp_shared.html">shared.tmp_shared</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">train_basic</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#train_basic.Trainer"><code class="docutils literal notranslate"><span class="pre">Trainer</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#train_basic.Trainer.initialize_data"><code class="docutils literal notranslate"><span class="pre">Trainer.initialize_data()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#train_basic.Trainer.initialize_model"><code class="docutils literal notranslate"><span class="pre">Trainer.initialize_model()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#train_basic.Trainer.initialize_optimizer"><code class="docutils literal notranslate"><span class="pre">Trainer.initialize_optimizer()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#train_basic.Trainer.initialize_scheduler"><code class="docutils literal notranslate"><span class="pre">Trainer.initialize_scheduler()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#train_basic.Trainer.restore_checkpoint"><code class="docutils literal notranslate"><span class="pre">Trainer.restore_checkpoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#train_basic.Trainer.save_checkpoint"><code class="docutils literal notranslate"><span class="pre">Trainer.save_checkpoint()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#train_basic.Trainer.single_print"><code class="docutils literal notranslate"><span class="pre">Trainer.single_print()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#train_basic.Trainer.train"><code class="docutils literal notranslate"><span class="pre">Trainer.train()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#train_basic.Trainer.train_one_epoch"><code class="docutils literal notranslate"><span class="pre">Trainer.train_one_epoch()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="#train_basic.Trainer.validate_one_epoch"><code class="docutils literal notranslate"><span class="pre">Trainer.validate_one_epoch()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#train_basic.add_weight_decay"><code class="docutils literal notranslate"><span class="pre">add_weight_decay()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="utils.YParams.html">utils.YParams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.logging_utils.html">utils.logging_utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Multiple Physics Pretrained</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">train_basic</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/train_basic.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-train_basic">
+<span id="train-basic"></span><h1>train_basic<a class="headerlink" href="#module-train_basic" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="train_basic.Trainer">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">train_basic.</span></span><span class="sig-name descname"><span class="pre">Trainer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">global_rank</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_rank</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">device</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sweep_id</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/train_basic.html#Trainer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train_basic.Trainer" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="train_basic.Trainer.initialize_data">
+<span class="sig-name descname"><span class="pre">initialize_data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/train_basic.html#Trainer.initialize_data"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train_basic.Trainer.initialize_data" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="train_basic.Trainer.initialize_model">
+<span class="sig-name descname"><span class="pre">initialize_model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/train_basic.html#Trainer.initialize_model"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train_basic.Trainer.initialize_model" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="train_basic.Trainer.initialize_optimizer">
+<span class="sig-name descname"><span class="pre">initialize_optimizer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/train_basic.html#Trainer.initialize_optimizer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train_basic.Trainer.initialize_optimizer" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="train_basic.Trainer.initialize_scheduler">
+<span class="sig-name descname"><span class="pre">initialize_scheduler</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">params</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/train_basic.html#Trainer.initialize_scheduler"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train_basic.Trainer.initialize_scheduler" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="train_basic.Trainer.restore_checkpoint">
+<span class="sig-name descname"><span class="pre">restore_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">checkpoint_path</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/train_basic.html#Trainer.restore_checkpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train_basic.Trainer.restore_checkpoint" title="Link to this definition"></a></dt>
+<dd><p>Load model/opt from path</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="train_basic.Trainer.save_checkpoint">
+<span class="sig-name descname"><span class="pre">save_checkpoint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">checkpoint_path</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/train_basic.html#Trainer.save_checkpoint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train_basic.Trainer.save_checkpoint" title="Link to this definition"></a></dt>
+<dd><p>Save model and optimizer to checkpoint</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="train_basic.Trainer.single_print">
+<span class="sig-name descname"><span class="pre">single_print</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">text</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/train_basic.html#Trainer.single_print"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train_basic.Trainer.single_print" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="train_basic.Trainer.train">
+<span class="sig-name descname"><span class="pre">train</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/train_basic.html#Trainer.train"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train_basic.Trainer.train" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="train_basic.Trainer.train_one_epoch">
+<span class="sig-name descname"><span class="pre">train_one_epoch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/train_basic.html#Trainer.train_one_epoch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train_basic.Trainer.train_one_epoch" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="train_basic.Trainer.validate_one_epoch">
+<span class="sig-name descname"><span class="pre">validate_one_epoch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">full</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/train_basic.html#Trainer.validate_one_epoch"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train_basic.Trainer.validate_one_epoch" title="Link to this definition"></a></dt>
+<dd><p>Validates - for each batch just use a small subset to make it easier.</p>
+<p>Note: need to split datasets for meaningful metrics, but TBD.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="train_basic.add_weight_decay">
+<span class="sig-prename descclassname"><span class="pre">train_basic.</span></span><span class="sig-name descname"><span class="pre">add_weight_decay</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">weight_decay</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1e-05</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">inner_lr</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0.001</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">skip_list</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">()</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/train_basic.html#add_weight_decay"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#train_basic.add_weight_decay" title="Link to this definition"></a></dt>
+<dd><p>From Ross Wightman at:
+<a class="reference external" href="https://discuss.pytorch.org/t/weight-decay-in-the-optimizers-is-a-bad-idea-especially-with-batchnorm/16994/3">https://discuss.pytorch.org/t/weight-decay-in-the-optimizers-is-a-bad-idea-especially-with-batchnorm/16994/3</a></p>
+<p>Goes through the parameter list and if the squeeze dim is 1 or 0 (usually means bias or scale)
+then don’t apply weight decay.</p>
+</dd></dl>
+
+<div class="graphviz"><img src="_images/inheritance-42046bde6d04bb8cc1c27cdbfa2ebdc11fbf61a4.png" alt="Inheritance diagram of train_basic" usemap="#inheritance218f2b9923" class="inheritance graphviz" /></div>
+<map id="inheritance218f2b9923" name="inheritance218f2b9923">
+<area shape="rect" id="node1" href="#train_basic.Trainer" target="_top" title="Trainer" alt="" coords="5,5,77,31"/>
+</map></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="shared.tmp_shared.html" class="btn btn-neutral float-left" title="shared.tmp_shared" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="utils.YParams.html" class="btn btn-neutral float-right" title="utils.YParams" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

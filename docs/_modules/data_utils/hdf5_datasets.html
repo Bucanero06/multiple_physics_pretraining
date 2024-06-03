@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>data_utils.hdf5_datasets &mdash; Multiple Physics Pretrained 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../../_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../../_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="../../_static/doctools.js?v=9a2dae69"></script>
+        <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            Multiple Physics Pretrained
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../autodocumentation_python.html">autodocumentation_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_utils.datasets.html">data_utils.datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_utils.hdf5_datasets.html">data_utils.hdf5_datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_utils.mixed_dset_sampler.html">data_utils.mixed_dset_sampler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../data_utils.pdebench_download_utils.download_pdebench_data.html">data_utils.pdebench_download_utils.download_pdebench_data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.avit.html">models.avit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.mixed_modules.html">models.mixed_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.shared_modules.html">models.shared_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.spatial_modules.html">models.spatial_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../models.time_modules.html">models.time_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shared.command_execution.html">shared.command_execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shared.config.html">shared.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shared.configuration_parser.html">shared.configuration_parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shared.data_processing_utils.html">shared.data_processing_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shared.file_directory_ops.html">shared.file_directory_ops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shared.logging.html">shared.logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shared.string_dict_utils.html">shared.string_dict_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../shared.tmp_shared.html">shared.tmp_shared</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../train_basic.html">train_basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils.YParams.html">utils.YParams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../utils.logging_utils.html">utils.logging_utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">Multiple Physics Pretrained</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">data_utils.hdf5_datasets</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for data_utils.hdf5_datasets</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">Remember to parameterize the file paths eventually</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="kn">import</span> <span class="nn">torch</span>
+<span class="kn">import</span> <span class="nn">torch.nn</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">from</span> <span class="nn">torch.utils.data</span> <span class="kn">import</span> <span class="n">Dataset</span>
+<span class="kn">import</span> <span class="nn">h5py</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="n">broken_paths</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+
+<div class="viewcode-block" id="BaseHDF5DirectoryDataset">
+<a class="viewcode-back" href="../../data_utils.hdf5_datasets.html#data_utils.hdf5_datasets.BaseHDF5DirectoryDataset">[docs]</a>
+<span class="k">class</span> <span class="nc">BaseHDF5DirectoryDataset</span><span class="p">(</span><span class="n">Dataset</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Base class for data loaders. Returns data in T x B x C x H x W format.</span>
+
+<span class="sd">    Note - doesn&#39;t currently normalize because the data is on wildly different</span>
+<span class="sd">    scales but probably should.</span>
+
+<span class="sd">    Split is provided so I can be lazy and not separate out HDF5 files.</span>
+
+<span class="sd">    Takes in path to directory of HDF5 files to construct dset. </span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        path (str): Path to directory of HDF5 files</span>
+<span class="sd">        include_string (str): Only include files with this string in name</span>
+<span class="sd">        n_steps (int): Number of steps to include in each sample</span>
+<span class="sd">        dt (int): Time step between samples</span>
+<span class="sd">        split (str): train/val/test split</span>
+<span class="sd">        train_val_test (tuple): Percent of data to use for train/val/test</span>
+<span class="sd">        subname (str): Name to use for dataset</span>
+<span class="sd">        split_level (str): &#39;sample&#39; or &#39;file&#39; - whether to split by samples within a file</span>
+<span class="sd">                        (useful for data segmented by parameters) or file (mostly INS right now)</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">include_string</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="s1">&#39;train&#39;</span><span class="p">,</span> 
+                 <span class="n">train_val_test</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">subname</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">extra_specific</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">path</span> <span class="o">=</span> <span class="n">path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">split</span> <span class="o">=</span> <span class="n">split</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">extra_specific</span> <span class="o">=</span> <span class="n">extra_specific</span> <span class="c1"># Whether to use parameters in name</span>
+        <span class="k">if</span> <span class="n">subname</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">subname</span> <span class="o">=</span> <span class="n">path</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">subname</span> <span class="o">=</span> <span class="n">subname</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_steps</span> <span class="o">=</span> <span class="n">n_steps</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">include_string</span> <span class="o">=</span> <span class="n">include_string</span>
+        <span class="c1"># self.time_index, self.sample_index = self._set_specifics()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">train_val_test</span> <span class="o">=</span> <span class="n">train_val_test</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">partition</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;train&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;val&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;test&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}[</span><span class="n">split</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">time_index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">sample_index</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">field_names</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_level</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_specifics</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_get_directory_stats</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">extra_specific</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">more_specific_title</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">type</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">include_string</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">title</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span>
+        
+
+<div class="viewcode-block" id="BaseHDF5DirectoryDataset.get_name">
+<a class="viewcode-back" href="../../data_utils.hdf5_datasets.html#data_utils.hdf5_datasets.BaseHDF5DirectoryDataset.get_name">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">full_name</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">full_name</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">subname</span> <span class="o">+</span> <span class="s1">&#39;_&#39;</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">type</span></div>
+
+    
+<div class="viewcode-block" id="BaseHDF5DirectoryDataset.more_specific_title">
+<a class="viewcode-back" href="../../data_utils.hdf5_datasets.html#data_utils.hdf5_datasets.BaseHDF5DirectoryDataset.more_specific_title">[docs]</a>
+    <span class="k">def</span> <span class="nf">more_specific_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">include_string</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Override this to add more info to the dataset name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="nb">type</span></div>
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_specifics</span><span class="p">():</span>
+        <span class="c1"># Sets self.field_names, self.dataset_type</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span> <span class="c1"># Per dset</span>
+    
+<div class="viewcode-block" id="BaseHDF5DirectoryDataset.get_per_file_dsets">
+<a class="viewcode-back" href="../../data_utils.hdf5_datasets.html#data_utils.hdf5_datasets.BaseHDF5DirectoryDataset.get_per_file_dsets">[docs]</a>
+    <span class="k">def</span> <span class="nf">get_per_file_dsets</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_level</span> <span class="o">==</span> <span class="s1">&#39;file&#39;</span> <span class="ow">or</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files_paths</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sub_dsets</span> <span class="o">=</span> <span class="p">[]</span>
+            <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">files_paths</span><span class="p">:</span>
+                <span class="n">subd</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">n_steps</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">n_steps</span><span class="p">,</span> <span class="n">dt</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">,</span> <span class="n">split</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">split</span><span class="p">,</span>
+                               <span class="n">train_val_test</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">train_val_test</span><span class="p">,</span> <span class="n">subname</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">subname</span><span class="p">,</span>
+                                 <span class="n">extra_specific</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+                <span class="n">sub_dsets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">subd</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">sub_dsets</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_get_specific_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span> <span class="c1"># Per dset</span>
+    
+    <span class="k">def</span> <span class="nf">_get_specific_bcs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span> <span class="c1"># Per dset</span>
+
+    <span class="k">def</span> <span class="nf">_reconstruct_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span> <span class="c1"># Per dset - should be (x=(-history:local_idx+dt) so that get_item can split into x, y</span>
+
+    <span class="k">def</span> <span class="nf">_get_directory_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">path</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">files_paths</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;/*.h5&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">path</span> <span class="o">+</span> <span class="s2">&quot;/*.hdf5&quot;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">files_paths</span><span class="o">.</span><span class="n">sort</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">n_files</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files_paths</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_steps</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_nsteps</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">file_samples</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">split_offsets</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">file_paths</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">files_paths</span><span class="p">:</span>
+            <span class="c1"># Total hack to avoid complications from folder with two sizes. </span>
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">include_string</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="bp">self</span><span class="o">.</span><span class="n">include_string</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">elif</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">broken_paths</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">file_paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">with</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">_f</span><span class="p">:</span>
+                        <span class="n">samples</span><span class="p">,</span> <span class="n">steps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_specific_stats</span><span class="p">(</span><span class="n">_f</span><span class="p">)</span>
+                        <span class="k">if</span> <span class="n">steps</span><span class="o">-</span><span class="bp">self</span><span class="o">.</span><span class="n">n_steps</span><span class="o">-</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">1</span><span class="p">:</span>
+                            <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: File </span><span class="si">{}</span><span class="s1"> has </span><span class="si">{}</span><span class="s1"> steps, but n_steps is </span><span class="si">{}</span><span class="s1">. Setting file steps = max allowable.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file</span><span class="p">,</span> <span class="n">steps</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_steps</span><span class="p">))</span>
+                            <span class="n">file_nsteps</span> <span class="o">=</span> <span class="n">steps</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">file_nsteps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">n_steps</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">file_nsteps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">file_nsteps</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">file_steps</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">steps</span><span class="o">-</span><span class="n">file_nsteps</span><span class="o">-</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+                        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_level</span> <span class="o">==</span> <span class="s1">&#39;sample&#39;</span><span class="p">:</span>
+                            <span class="c1"># Compute which are in the given partition</span>
+                            <span class="n">partition</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">partition</span>
+                            <span class="n">sample_per_part</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ceil</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_val_test</span><span class="p">)</span><span class="o">*</span><span class="n">samples</span><span class="p">)</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">)</span>
+                            <span class="c1"># Make sure rounding works</span>
+                            <span class="n">sample_per_part</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">samples</span> <span class="o">-</span> <span class="n">sample_per_part</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">-</span> <span class="n">sample_per_part</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
+                            <span class="c1"># I forget where the file steps formula came from, but offset by steps per sample</span>
+                            <span class="c1"># * samples of previous partitions</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">split_offsets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_steps</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">*</span><span class="nb">sum</span><span class="p">(</span><span class="n">sample_per_part</span><span class="p">[:</span><span class="n">partition</span><span class="p">]))</span>
+                            <span class="n">split_samples</span> <span class="o">=</span> <span class="n">sample_per_part</span><span class="p">[</span><span class="n">partition</span><span class="p">]</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">split_samples</span> <span class="o">=</span> <span class="n">samples</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">file_samples</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">split_samples</span><span class="p">)</span>
+                        <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offsets</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">+</span><span class="p">(</span><span class="n">steps</span><span class="o">-</span><span class="n">file_nsteps</span><span class="o">-</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="o">-</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="n">split_samples</span><span class="p">)</span>
+                <span class="k">except</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: Failed to open file </span><span class="si">{}</span><span class="s1">. Continuing without it.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+                    <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s1">&#39;Failed to open file </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file</span><span class="p">))</span>
+        <span class="c1"># print(self.file_steps, self.file_samples)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">files_paths</span> <span class="o">=</span> <span class="n">file_paths</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="c1"># Just to make sure it doesn&#39;t put us in file -1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">files</span> <span class="o">=</span> <span class="p">[</span><span class="kc">None</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">files_paths</span><span class="p">]</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">len</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_level</span> <span class="o">==</span> <span class="s1">&#39;file&#39;</span><span class="p">:</span>
+        <span class="c1"># Figure out our split offset - by sample</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">train_val_test</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;WARNING: No train/val/test split specified. Using all data for training.&#39;</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">split_offset</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">len</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">offsets</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Using train/val/test split: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_val_test</span><span class="p">))</span>
+                <span class="n">total_samples</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_samples</span><span class="p">)</span>
+                <span class="n">ideal_split_offsets</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">train_val_test</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">*</span><span class="n">total_samples</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">3</span><span class="p">)]</span>
+                <span class="c1"># Doing this the naive way because I only need to do it once</span>
+                <span class="c1"># Iterate through files until we get enough samples for set</span>
+                <span class="n">end_ind</span> <span class="o">=</span> <span class="mi">0</span>
+                <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">partition</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
+                    <span class="n">run_sum</span> <span class="o">=</span> <span class="mi">0</span>
+                    <span class="n">start_ind</span> <span class="o">=</span> <span class="n">end_ind</span>
+                    <span class="k">for</span> <span class="n">samples</span><span class="p">,</span> <span class="n">steps</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">file_samples</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_steps</span><span class="p">):</span>
+                        <span class="n">run_sum</span> <span class="o">+=</span> <span class="n">samples</span>
+                        <span class="k">if</span> <span class="n">run_sum</span> <span class="o">&lt;=</span> <span class="n">ideal_split_offsets</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                            <span class="n">end_ind</span> <span class="o">+=</span> <span class="n">samples</span> <span class="o">*</span> <span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+                            <span class="k">if</span> <span class="n">run_sum</span> <span class="o">==</span> <span class="n">ideal_split_offsets</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span>
+                                <span class="k">break</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="n">end_ind</span> <span class="o">+=</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">((</span><span class="n">run_sum</span> <span class="o">-</span> <span class="n">samples</span><span class="p">)</span> <span class="o">-</span> <span class="n">ideal_split_offsets</span><span class="p">[</span><span class="n">i</span><span class="p">])</span> <span class="o">*</span> <span class="p">(</span><span class="n">steps</span><span class="p">)</span>
+                            <span class="k">break</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">split_offset</span> <span class="o">=</span> <span class="n">start_ind</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">len</span> <span class="o">=</span> <span class="n">end_ind</span> <span class="o">-</span> <span class="n">start_ind</span>
+            <span class="c1"># else:</span>
+                
+                
+    <span class="k">def</span> <span class="nf">_open_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file_ind</span><span class="p">):</span>
+        <span class="n">_file</span> <span class="o">=</span> <span class="n">h5py</span><span class="o">.</span><span class="n">File</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files_paths</span><span class="p">[</span><span class="n">file_ind</span><span class="p">],</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">file_ind</span><span class="p">]</span> <span class="o">=</span> <span class="n">_file</span>
+
+    <span class="k">def</span> <span class="fm">__getitem__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">index</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_level</span> <span class="o">==</span> <span class="s1">&#39;file&#39;</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">index</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_offset</span>
+
+        <span class="n">file_idx</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">searchsorted</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offsets</span><span class="p">,</span> <span class="n">index</span><span class="p">,</span> <span class="n">side</span><span class="o">=</span><span class="s1">&#39;right&#39;</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="c1">#which file we are on</span>
+        <span class="c1"># print(&#39;sample from:&#39;, self.files_paths[file_idx])</span>
+        <span class="n">nsteps</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_nsteps</span><span class="p">[</span><span class="n">file_idx</span><span class="p">]</span> <span class="c1"># Number of steps per sample in given file</span>
+        <span class="n">local_idx</span> <span class="o">=</span> <span class="n">index</span> <span class="o">-</span> <span class="nb">max</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">offsets</span><span class="p">[</span><span class="n">file_idx</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span> <span class="c1"># First offset is -1</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_level</span> <span class="o">==</span> <span class="s1">&#39;sample&#39;</span><span class="p">:</span>
+            <span class="n">sample_idx</span> <span class="o">=</span> <span class="p">(</span><span class="n">local_idx</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">split_offsets</span><span class="p">[</span><span class="n">file_idx</span><span class="p">])</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_steps</span><span class="p">[</span><span class="n">file_idx</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">sample_idx</span> <span class="o">=</span> <span class="n">local_idx</span> <span class="o">//</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_steps</span><span class="p">[</span><span class="n">file_idx</span><span class="p">]</span>
+        <span class="n">time_idx</span> <span class="o">=</span> <span class="n">local_idx</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_steps</span><span class="p">[</span><span class="n">file_idx</span><span class="p">]</span> 
+
+        <span class="c1">#open image file</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">file_idx</span><span class="p">]</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_open_file</span><span class="p">(</span><span class="n">file_idx</span><span class="p">)</span>
+
+        <span class="c1">#if we are on the last image in a file shift backward. Double counting until I bother fixing this.</span>
+        <span class="n">time_idx</span> <span class="o">=</span> <span class="n">time_idx</span> <span class="o">-</span> <span class="bp">self</span><span class="o">.</span><span class="n">dt</span> <span class="k">if</span> <span class="n">time_idx</span> <span class="o">&gt;=</span> <span class="bp">self</span><span class="o">.</span><span class="n">file_steps</span><span class="p">[</span><span class="n">file_idx</span><span class="p">]</span> <span class="k">else</span> <span class="n">time_idx</span>
+        <span class="n">time_idx</span> <span class="o">+=</span> <span class="n">nsteps</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="c1"># print(self.files[file_idx], sample_idx, time_idx, index)</span>
+            <span class="n">trajectory</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_reconstruct_sample</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">file_idx</span><span class="p">],</span> <span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="p">,</span> <span class="n">nsteps</span><span class="p">)</span>
+            <span class="n">bcs</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_specific_bcs</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">files</span><span class="p">[</span><span class="n">file_idx</span><span class="p">])</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Failed to reconstruct sample for file </span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">files_paths</span><span class="p">[</span><span class="n">file_idx</span><span class="p">]</span><span class="si">}</span><span class="s1"> sample </span><span class="si">{</span><span class="n">sample_idx</span><span class="si">}</span><span class="s1"> time </span><span class="si">{</span><span class="n">time_idx</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">trajectory</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">torch</span><span class="o">.</span><span class="n">as_tensor</span><span class="p">(</span><span class="n">bcs</span><span class="p">),</span> <span class="n">trajectory</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="fm">__len__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">len</span></div>
+
+    
+
+<div class="viewcode-block" id="SWEDataset">
+<a class="viewcode-back" href="../../data_utils.hdf5_datasets.html#data_utils.hdf5_datasets.SWEDataset">[docs]</a>
+<span class="k">class</span> <span class="nc">SWEDataset</span><span class="p">(</span><span class="n">BaseHDF5DirectoryDataset</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_specifics</span><span class="p">():</span>
+        <span class="n">time_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">sample_index</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;h&#39;</span><span class="p">]</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;swe&#39;</span>
+        <span class="n">split_level</span> <span class="o">=</span> <span class="s1">&#39;sample&#39;</span>
+        <span class="k">return</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">sample_index</span><span class="p">,</span> <span class="n">field_names</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">split_level</span>
+
+    <span class="k">def</span> <span class="nf">_get_specific_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">steps</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">),</span> <span class="n">steps</span>
+    
+    <span class="k">def</span> <span class="nf">_get_specific_bcs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># Non-periodic</span>
+
+    <span class="k">def</span> <span class="nf">_reconstruct_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">file</span><span class="p">[</span><span class="n">samples</span><span class="p">[</span><span class="n">sample_idx</span><span class="p">]][</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">time_idx</span><span class="o">-</span><span class="n">n_steps</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span><span class="n">time_idx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="DiffRe2DDataset">
+<a class="viewcode-back" href="../../data_utils.hdf5_datasets.html#data_utils.hdf5_datasets.DiffRe2DDataset">[docs]</a>
+<span class="k">class</span> <span class="nc">DiffRe2DDataset</span><span class="p">(</span><span class="n">BaseHDF5DirectoryDataset</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_specifics</span><span class="p">():</span>
+        <span class="n">time_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">sample_index</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;activator&#39;</span><span class="p">,</span> <span class="s1">&#39;inhibitor&#39;</span><span class="p">]</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;diffre2d&#39;</span>
+        <span class="n">split_level</span> <span class="o">=</span> <span class="s1">&#39;sample&#39;</span>
+        <span class="k">return</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">sample_index</span><span class="p">,</span> <span class="n">field_names</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">split_level</span>
+
+    <span class="k">def</span> <span class="nf">_get_specific_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">steps</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">),</span> <span class="n">steps</span>
+    
+    <span class="k">def</span> <span class="nf">_get_specific_bcs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># Non-periodic</span>
+
+    <span class="k">def</span> <span class="nf">_reconstruct_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">file</span><span class="p">[</span><span class="n">samples</span><span class="p">[</span><span class="n">sample_idx</span><span class="p">]][</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">time_idx</span><span class="o">-</span><span class="n">n_steps</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span><span class="n">time_idx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span></div>
+
+    
+<div class="viewcode-block" id="IncompNSDataset">
+<a class="viewcode-back" href="../../data_utils.hdf5_datasets.html#data_utils.hdf5_datasets.IncompNSDataset">[docs]</a>
+<span class="k">class</span> <span class="nc">IncompNSDataset</span><span class="p">(</span><span class="n">BaseHDF5DirectoryDataset</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Order Vx, Vy, &quot;particles&quot;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_specifics</span><span class="p">():</span>
+        <span class="n">time_index</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">sample_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Vx&#39;</span><span class="p">,</span> <span class="s1">&#39;Vy&#39;</span><span class="p">,</span> <span class="s1">&#39;particles&#39;</span><span class="p">]</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;incompNS&#39;</span>
+        <span class="n">split_level</span> <span class="o">=</span> <span class="s1">&#39;file&#39;</span>
+        <span class="k">return</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">sample_index</span><span class="p">,</span> <span class="n">field_names</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">split_level</span>
+
+    <span class="k">def</span> <span class="nf">_get_specific_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;velocity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+        <span class="n">steps</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;velocity&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="c1"># Per dset</span>
+        <span class="k">return</span> <span class="n">samples</span><span class="p">,</span> <span class="n">steps</span>
+
+    <span class="k">def</span> <span class="nf">_reconstruct_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
+        <span class="n">velocity</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="s1">&#39;velocity&#39;</span><span class="p">][</span><span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="o">-</span><span class="n">n_steps</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span><span class="n">time_idx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">]</span>
+        <span class="n">particles</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="s1">&#39;particles&#39;</span><span class="p">][</span><span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="o">-</span><span class="n">n_steps</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span><span class="n">time_idx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">]</span>
+        <span class="n">comb</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">velocity</span><span class="p">,</span> <span class="n">particles</span><span class="p">],</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">comb</span><span class="o">.</span><span class="n">transpose</span><span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">))</span>
+    
+    <span class="k">def</span> <span class="nf">_get_specific_bcs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># Non-periodic</span></div>
+
+    
+<div class="viewcode-block" id="PDEArenaINS">
+<a class="viewcode-back" href="../../data_utils.hdf5_datasets.html#data_utils.hdf5_datasets.PDEArenaINS">[docs]</a>
+<span class="k">class</span> <span class="nc">PDEArenaINS</span><span class="p">(</span><span class="n">BaseHDF5DirectoryDataset</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Order Vx, Vy, density, pressure</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_specifics</span><span class="p">():</span>
+        <span class="n">time_index</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">sample_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Vx&#39;</span><span class="p">,</span> <span class="s1">&#39;Vy&#39;</span><span class="p">,</span> <span class="s1">&#39;u&#39;</span><span class="p">]</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;pa_ins&#39;</span>
+        <span class="n">split_level</span> <span class="o">=</span> <span class="s1">&#39;sample&#39;</span>
+        <span class="k">return</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">sample_index</span><span class="p">,</span> <span class="n">field_names</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">split_level</span>
+
+    <span class="k">def</span> <span class="nf">_get_specific_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;Vx&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+        <span class="n">steps</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;Vx&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="c1"># Per dset</span>
+        <span class="k">return</span> <span class="n">samples</span><span class="p">,</span> <span class="n">steps</span>
+
+<div class="viewcode-block" id="PDEArenaINS.more_specific_title">
+<a class="viewcode-back" href="../../data_utils.hdf5_datasets.html#data_utils.hdf5_datasets.PDEArenaINS.more_specific_title">[docs]</a>
+    <span class="k">def</span> <span class="nf">more_specific_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">include_string</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Override this to add more info to the dataset name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">split_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">include_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+        <span class="n">buoy</span> <span class="o">=</span> <span class="n">split_path</span><span class="p">[</span><span class="o">-</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">nu</span> <span class="o">=</span> <span class="n">split_path</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">type</span><span class="si">}</span><span class="s1">_buoy</span><span class="si">{</span><span class="n">buoy</span><span class="si">}</span><span class="s1">_nu</span><span class="si">{</span><span class="n">nu</span><span class="si">}</span><span class="s1">&#39;</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_reconstruct_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
+        <span class="n">vx</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="s1">&#39;Vx&#39;</span><span class="p">][</span><span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="o">-</span><span class="n">n_steps</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span><span class="n">time_idx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">]</span>
+        <span class="n">vy</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="s1">&#39;Vy&#39;</span><span class="p">][</span><span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="o">-</span><span class="n">n_steps</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span><span class="n">time_idx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">]</span>
+        <span class="n">density</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">][</span><span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="o">-</span><span class="n">n_steps</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span><span class="n">time_idx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">]</span>
+        <span class="n">comb</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">density</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">comb</span><span class="c1">#.transpose((0, 3, 1, 2))</span>
+    
+    <span class="k">def</span> <span class="nf">_get_specific_bcs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># Not Periodic</span></div>
+
+    
+<div class="viewcode-block" id="CompNSDataset">
+<a class="viewcode-back" href="../../data_utils.hdf5_datasets.html#data_utils.hdf5_datasets.CompNSDataset">[docs]</a>
+<span class="k">class</span> <span class="nc">CompNSDataset</span><span class="p">(</span><span class="n">BaseHDF5DirectoryDataset</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Order Vx, Vy, density, pressure</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_specifics</span><span class="p">():</span>
+        <span class="n">time_index</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">sample_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Vx&#39;</span><span class="p">,</span> <span class="s1">&#39;Vy&#39;</span><span class="p">,</span> <span class="s1">&#39;density&#39;</span><span class="p">,</span> <span class="s1">&#39;pressure&#39;</span><span class="p">]</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;compNS&#39;</span>
+        <span class="n">split_level</span> <span class="o">=</span> <span class="s1">&#39;sample&#39;</span>
+        <span class="k">return</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">sample_index</span><span class="p">,</span> <span class="n">field_names</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">split_level</span>
+
+    <span class="k">def</span> <span class="nf">_get_specific_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;Vx&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+        <span class="n">steps</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;Vx&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="c1"># Per dset</span>
+        <span class="k">return</span> <span class="n">samples</span><span class="p">,</span> <span class="n">steps</span>
+
+<div class="viewcode-block" id="CompNSDataset.more_specific_title">
+<a class="viewcode-back" href="../../data_utils.hdf5_datasets.html#data_utils.hdf5_datasets.CompNSDataset.more_specific_title">[docs]</a>
+    <span class="k">def</span> <span class="nf">more_specific_title</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">path</span><span class="p">,</span> <span class="n">include_string</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Override this to add more info to the dataset name</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">cns_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">include_string</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;_&#39;</span><span class="p">)</span>
+        <span class="n">ic</span> <span class="o">=</span> <span class="n">cns_path</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+        <span class="n">m</span> <span class="o">=</span> <span class="n">cns_path</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="n">res</span> <span class="o">=</span> <span class="n">cns_path</span><span class="p">[</span><span class="o">-</span><span class="mi">2</span><span class="p">]</span>
+
+        <span class="k">return</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="nb">type</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">ic</span><span class="si">}</span><span class="s1">_</span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s1">_res</span><span class="si">{</span><span class="n">res</span><span class="si">}</span><span class="s1">&#39;</span></div>
+
+
+    <span class="k">def</span> <span class="nf">_reconstruct_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
+        <span class="n">vx</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="s1">&#39;Vx&#39;</span><span class="p">][</span><span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="o">-</span><span class="n">n_steps</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span><span class="n">time_idx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">]</span>
+        <span class="n">vy</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="s1">&#39;Vy&#39;</span><span class="p">][</span><span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="o">-</span><span class="n">n_steps</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span><span class="n">time_idx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">]</span>
+        <span class="n">density</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="s1">&#39;density&#39;</span><span class="p">][</span><span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="o">-</span><span class="n">n_steps</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span><span class="n">time_idx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">]</span>
+        <span class="n">p</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="s1">&#39;pressure&#39;</span><span class="p">][</span><span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="o">-</span><span class="n">n_steps</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span><span class="n">time_idx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">]</span>
+
+        <span class="n">comb</span> <span class="o">=</span>  <span class="n">np</span><span class="o">.</span><span class="n">stack</span><span class="p">([</span><span class="n">vx</span><span class="p">,</span> <span class="n">vy</span><span class="p">,</span> <span class="n">density</span><span class="p">,</span> <span class="n">p</span><span class="p">],</span> <span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">comb</span><span class="c1">#.transpose((0, 3, 1, 2))</span>
+    
+    <span class="k">def</span> <span class="nf">_get_specific_bcs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># Periodic</span></div>
+
+    
+<div class="viewcode-block" id="BurgersDataset">
+<a class="viewcode-back" href="../../data_utils.hdf5_datasets.html#data_utils.hdf5_datasets.BurgersDataset">[docs]</a>
+<span class="k">class</span> <span class="nc">BurgersDataset</span><span class="p">(</span><span class="n">BaseHDF5DirectoryDataset</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Order Vx, Vy, density, pressure</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_specifics</span><span class="p">():</span>
+        <span class="n">time_index</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="n">sample_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Vx&#39;</span><span class="p">]</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;burgers&#39;</span>
+        <span class="n">split_level</span> <span class="o">=</span> <span class="s1">&#39;sample&#39;</span>
+        <span class="k">return</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">sample_index</span><span class="p">,</span> <span class="n">field_names</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">split_level</span>
+
+    <span class="k">def</span> <span class="nf">_get_specific_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;tensor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> 
+        <span class="n">steps</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;tensor&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="c1"># Per dset</span>
+        <span class="k">return</span> <span class="n">samples</span><span class="p">,</span> <span class="n">steps</span>
+
+    <span class="k">def</span> <span class="nf">_reconstruct_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
+        <span class="n">vx</span> <span class="o">=</span> <span class="n">file</span><span class="p">[</span><span class="s1">&#39;tensor&#39;</span><span class="p">][</span><span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="o">-</span><span class="n">n_steps</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span><span class="n">time_idx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">]</span>
+        <span class="c1"># print(vx.shape)</span>
+        <span class="n">vx</span> <span class="o">=</span> <span class="n">vx</span><span class="p">[:,</span> <span class="kc">None</span><span class="p">,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">vx</span><span class="c1">#.transpose((0, 3, 1, 2))</span>
+    
+    <span class="k">def</span> <span class="nf">_get_specific_bcs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span> <span class="c1"># Periodic</span></div>
+
+    
+<div class="viewcode-block" id="DiffSorb1DDataset">
+<a class="viewcode-back" href="../../data_utils.hdf5_datasets.html#data_utils.hdf5_datasets.DiffSorb1DDataset">[docs]</a>
+<span class="k">class</span> <span class="nc">DiffSorb1DDataset</span><span class="p">(</span><span class="n">BaseHDF5DirectoryDataset</span><span class="p">):</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_specifics</span><span class="p">():</span>
+        <span class="n">time_index</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="n">sample_index</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">field_names</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;u&#39;</span><span class="p">]</span>
+        <span class="nb">type</span> <span class="o">=</span> <span class="s1">&#39;diffsorb&#39;</span>
+        <span class="n">split_level</span> <span class="o">=</span> <span class="s1">&#39;sample&#39;</span>
+        <span class="k">return</span> <span class="n">time_index</span><span class="p">,</span> <span class="n">sample_index</span><span class="p">,</span> <span class="n">field_names</span><span class="p">,</span> <span class="nb">type</span><span class="p">,</span> <span class="n">split_level</span>
+
+    <span class="k">def</span> <span class="nf">_get_specific_stats</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="n">steps</span> <span class="o">=</span> <span class="n">f</span><span class="p">[</span><span class="n">samples</span><span class="p">[</span><span class="mi">0</span><span class="p">]][</span><span class="s1">&#39;data&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">return</span> <span class="nb">len</span><span class="p">(</span><span class="n">samples</span><span class="p">),</span> <span class="n">steps</span>
+    
+    <span class="k">def</span> <span class="nf">_get_specific_bcs</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">f</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span> <span class="c1"># Non-periodic</span>
+
+    <span class="k">def</span> <span class="nf">_reconstruct_sample</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">file</span><span class="p">,</span> <span class="n">sample_idx</span><span class="p">,</span> <span class="n">time_idx</span><span class="p">,</span> <span class="n">n_steps</span><span class="p">):</span>
+        <span class="n">samples</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">file</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+        <span class="k">return</span> <span class="n">file</span><span class="p">[</span><span class="n">samples</span><span class="p">[</span><span class="n">sample_idx</span><span class="p">]][</span><span class="s1">&#39;data&#39;</span><span class="p">][</span><span class="n">time_idx</span><span class="o">-</span><span class="n">n_steps</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">:</span><span class="n">time_idx</span><span class="o">+</span><span class="bp">self</span><span class="o">.</span><span class="n">dt</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[:,</span> <span class="p">:,</span> <span class="p">:,</span> <span class="kc">None</span><span class="p">]</span></div>
+
+
+ 
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

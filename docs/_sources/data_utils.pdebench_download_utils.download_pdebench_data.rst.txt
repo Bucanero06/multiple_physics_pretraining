@@ -1,0 +1,11 @@
+data_utils.pdebench_download_utils.download_pdebench_data
+=========================================================
+
+.. automodule:: data_utils.pdebench_download_utils.download_pdebench_data
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. inheritance-diagram:: data_utils.pdebench_download_utils.download_pdebench_data
+    :parts: 1
+

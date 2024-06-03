@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>shared.tmp_shared &mdash; Multiple Physics Pretrained 0.0.1 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=fd3f3429" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=d45e8c67"></script>
+        <script src="_static/doctools.js?v=9a2dae69"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="train_basic" href="train_basic.html" />
+    <link rel="prev" title="shared.string_dict_utils" href="shared.string_dict_utils.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            Multiple Physics Pretrained
+          </a>
+              <div class="version">
+                0.0.1
+              </div>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="autodocumentation_python.html">autodocumentation_python</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_utils.datasets.html">data_utils.datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_utils.hdf5_datasets.html">data_utils.hdf5_datasets</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_utils.mixed_dset_sampler.html">data_utils.mixed_dset_sampler</a></li>
+<li class="toctree-l1"><a class="reference internal" href="data_utils.pdebench_download_utils.download_pdebench_data.html">data_utils.pdebench_download_utils.download_pdebench_data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.avit.html">models.avit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.mixed_modules.html">models.mixed_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.shared_modules.html">models.shared_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.spatial_modules.html">models.spatial_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="models.time_modules.html">models.time_modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.command_execution.html">shared.command_execution</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.config.html">shared.config</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.configuration_parser.html">shared.configuration_parser</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.data_processing_utils.html">shared.data_processing_utils</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.file_directory_ops.html">shared.file_directory_ops</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.logging.html">shared.logging</a></li>
+<li class="toctree-l1"><a class="reference internal" href="shared.string_dict_utils.html">shared.string_dict_utils</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">shared.tmp_shared</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#shared.tmp_shared.FunctionCall"><code class="docutils literal notranslate"><span class="pre">FunctionCall</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#shared.tmp_shared.FunctionCall.execute"><code class="docutils literal notranslate"><span class="pre">FunctionCall.execute()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#shared.tmp_shared.calculate_sl_stop_prices"><code class="docutils literal notranslate"><span class="pre">calculate_sl_stop_prices()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shared.tmp_shared.calculate_sl_stop_prices_usd"><code class="docutils literal notranslate"><span class="pre">calculate_sl_stop_prices_usd()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shared.tmp_shared.calculate_stop_prices"><code class="docutils literal notranslate"><span class="pre">calculate_stop_prices()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shared.tmp_shared.calculate_tp_stop_prices"><code class="docutils literal notranslate"><span class="pre">calculate_tp_stop_prices()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shared.tmp_shared.calculate_tp_stop_prices_usd"><code class="docutils literal notranslate"><span class="pre">calculate_tp_stop_prices_usd()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shared.tmp_shared.ccy_contracts_to_usd"><code class="docutils literal notranslate"><span class="pre">ccy_contracts_to_usd()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shared.tmp_shared.ccy_usd_to_contracts"><code class="docutils literal notranslate"><span class="pre">ccy_usd_to_contracts()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shared.tmp_shared.execute_function_calls"><code class="docutils literal notranslate"><span class="pre">execute_function_calls()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#shared.tmp_shared.get_timestamp_from_days_ago"><code class="docutils literal notranslate"><span class="pre">get_timestamp_from_days_ago()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="train_basic.html">train_basic</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.YParams.html">utils.YParams</a></li>
+<li class="toctree-l1"><a class="reference internal" href="utils.logging_utils.html">utils.logging_utils</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">Multiple Physics Pretrained</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">shared.tmp_shared</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/shared.tmp_shared.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-shared.tmp_shared">
+<span id="shared-tmp-shared"></span><h1>shared.tmp_shared<a class="headerlink" href="#module-shared.tmp_shared" title="Link to this heading"></a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="shared.tmp_shared.FunctionCall">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">shared.tmp_shared.</span></span><span class="sig-name descname"><span class="pre">FunctionCall</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">func</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span><span class="n"><span class="pre">args</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">**</span></span><span class="n"><span class="pre">kwargs</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shared/tmp_shared.html#FunctionCall"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shared.tmp_shared.FunctionCall" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="shared.tmp_shared.FunctionCall.execute">
+<span class="sig-name descname"><span class="pre">execute</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/shared/tmp_shared.html#FunctionCall.execute"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shared.tmp_shared.FunctionCall.execute" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shared.tmp_shared.calculate_sl_stop_prices">
+<span class="sig-prename descclassname"><span class="pre">shared.tmp_shared.</span></span><span class="sig-name descname"><span class="pre">calculate_sl_stop_prices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order_side</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sl_trigger_percentage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sl_price_offset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shared/tmp_shared.html#calculate_sl_stop_prices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shared.tmp_shared.calculate_sl_stop_prices" title="Link to this definition"></a></dt>
+<dd><p>Calculate stop loss trigger and execute prices based on the order side.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_side</strong> – Either ‘buy’ or ‘sell’.</p></li>
+<li><p><strong>current_market_price</strong> – Current market price of the asset.</p></li>
+<li><p><strong>sl_trigger_percentage</strong> – Percentage for calculating the stop loss trigger price.</p></li>
+<li><p><strong>sl_price_offset</strong> – Offset for calculating the stop loss execute price.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple containing sl_trigger_price, sl_execute_price.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If order_side is not ‘buy’ or ‘sell’.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shared.tmp_shared.calculate_sl_stop_prices_usd">
+<span class="sig-prename descclassname"><span class="pre">shared.tmp_shared.</span></span><span class="sig-name descname"><span class="pre">calculate_sl_stop_prices_usd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order_side</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sl_trigger_usd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sl_execute_usd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shared/tmp_shared.html#calculate_sl_stop_prices_usd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shared.tmp_shared.calculate_sl_stop_prices_usd" title="Link to this definition"></a></dt>
+<dd><p>Calculate stop loss trigger and execute prices based on the order side using USD values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_side</strong> – Either ‘buy’ or ‘sell’.</p></li>
+<li><p><strong>reference_price</strong> – Current market price of the asset.</p></li>
+<li><p><strong>sl_trigger_usd</strong> – USD value for calculating the stop loss trigger price.</p></li>
+<li><p><strong>sl_execute_usd</strong> – USD value for calculating the stop loss execute price.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple containing sl_trigger_price, sl_execute_price.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If order_side is not ‘buy’ or ‘sell’.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shared.tmp_shared.calculate_stop_prices">
+<span class="sig-prename descclassname"><span class="pre">shared.tmp_shared.</span></span><span class="sig-name descname"><span class="pre">calculate_stop_prices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order_side</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sl_trigger_price_offset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_surplus_trigger_percentage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">sl_execution_price_offset</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stop_surplus_price_offset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shared/tmp_shared.html#calculate_stop_prices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shared.tmp_shared.calculate_stop_prices" title="Link to this definition"></a></dt>
+<dd><p>Calculate stop loss and stop surplus trigger and execute prices based on the order side.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_side</strong> – Either ‘buy’ or ‘sell’.</p></li>
+<li><p><strong>current_market_price</strong> – Current market price of the asset.</p></li>
+<li><p><strong>sl_trigger_price_offset</strong> – Percentage for calculating the stop loss trigger price.</p></li>
+<li><p><strong>stop_surplus_trigger_percentage</strong> – Percentage for calculating the stop surplus trigger price.</p></li>
+<li><p><strong>sl_execution_price_offset</strong> – Offset for calculating the stop loss execute price.</p></li>
+<li><p><strong>stop_surplus_price_offset</strong> – Offset for calculating the stop surplus execute price.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple containing stop_loss_trigger_price, stop_surplus_trigger_price, stop_loss_execute_price, stop_surplus_execute_price.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If order_side is not ‘buy’ or ‘sell’.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shared.tmp_shared.calculate_tp_stop_prices">
+<span class="sig-prename descclassname"><span class="pre">shared.tmp_shared.</span></span><span class="sig-name descname"><span class="pre">calculate_tp_stop_prices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order_side</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tp_trigger_percentage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tp_execution_price_offset</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shared/tmp_shared.html#calculate_tp_stop_prices"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shared.tmp_shared.calculate_tp_stop_prices" title="Link to this definition"></a></dt>
+<dd><p>Calculate take profit trigger and execute prices based on the order side.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_side</strong> – Either ‘buy’ or ‘sell’.</p></li>
+<li><p><strong>current_market_price</strong> – Current market price of the asset.</p></li>
+<li><p><strong>tp_trigger_percentage</strong> – Percentage for calculating the take profit trigger price.</p></li>
+<li><p><strong>tp_execution_price_offset</strong> – Offset for calculating the take profit execute price.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple containing tp_trigger_price, tp_execute_price.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If order_side is not ‘buy’ or ‘sell’.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shared.tmp_shared.calculate_tp_stop_prices_usd">
+<span class="sig-prename descclassname"><span class="pre">shared.tmp_shared.</span></span><span class="sig-name descname"><span class="pre">calculate_tp_stop_prices_usd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">order_side</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tp_trigger_usd</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tp_execute_usd</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shared/tmp_shared.html#calculate_tp_stop_prices_usd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shared.tmp_shared.calculate_tp_stop_prices_usd" title="Link to this definition"></a></dt>
+<dd><p>Calculate take profit trigger and execute prices based on the order side using USD values.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>order_side</strong> – Either ‘buy’ or ‘sell’.</p></li>
+<li><p><strong>reference_price</strong> – Current market price of the asset.</p></li>
+<li><p><strong>tp_trigger_usd</strong> – USD value for calculating the take profit trigger price.</p></li>
+<li><p><strong>tp_execute_usd</strong> – USD value for calculating the take profit execute price.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><p>Tuple containing tp_trigger_price, tp_execute_price.</p>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>ValueError</strong> – If order_side is not ‘buy’ or ‘sell’.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shared.tmp_shared.ccy_contracts_to_usd">
+<span class="sig-prename descclassname"><span class="pre">shared.tmp_shared.</span></span><span class="sig-name descname"><span class="pre">ccy_contracts_to_usd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">contracts_amount</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ccy_contract_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ccy_last_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usd_base_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leverage</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shared/tmp_shared.html#ccy_contracts_to_usd"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shared.tmp_shared.ccy_contracts_to_usd" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shared.tmp_shared.ccy_usd_to_contracts">
+<span class="sig-prename descclassname"><span class="pre">shared.tmp_shared.</span></span><span class="sig-name descname"><span class="pre">ccy_usd_to_contracts</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">usd_equivalent</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ccy_contract_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ccy_last_price</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minimum_contract_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">max_market_contract_size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">usd_base_ratio</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">leverage</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ctValCcy</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shared/tmp_shared.html#ccy_usd_to_contracts"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shared.tmp_shared.ccy_usd_to_contracts" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shared.tmp_shared.execute_function_calls">
+<span class="sig-prename descclassname"><span class="pre">shared.tmp_shared.</span></span><span class="sig-name descname"><span class="pre">execute_function_calls</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">function_calls</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shared/tmp_shared.html#execute_function_calls"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shared.tmp_shared.execute_function_calls" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="shared.tmp_shared.get_timestamp_from_days_ago">
+<span class="sig-prename descclassname"><span class="pre">shared.tmp_shared.</span></span><span class="sig-name descname"><span class="pre">get_timestamp_from_days_ago</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">days_ago</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hours_ago</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">minutes_ago</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">seconds_ago</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">0</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">reference_time</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">datetime</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/shared/tmp_shared.html#get_timestamp_from_days_ago"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#shared.tmp_shared.get_timestamp_from_days_ago" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<div class="graphviz"><img src="_images/inheritance-55cf3a4902461644a135f7d329559d7cf47e742e.png" alt="Inheritance diagram of shared.tmp_shared" usemap="#inheritance3d96644661" class="inheritance graphviz" /></div>
+<map id="inheritance3d96644661" name="inheritance3d96644661">
+<area shape="rect" id="node1" href="#shared.tmp_shared.FunctionCall" target="_top" title="FunctionCall" alt="" coords="5,5,108,31"/>
+</map></section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="shared.string_dict_utils.html" class="btn btn-neutral float-left" title="shared.string_dict_utils" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="train_basic.html" class="btn btn-neutral float-right" title="train_basic" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, .</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+train_basic
+===========
+
+.. automodule:: train_basic
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. inheritance-diagram:: train_basic
+    :parts: 1
+

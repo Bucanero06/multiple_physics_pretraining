@@ -1,0 +1,12 @@
+<map id="inheritance1fc669c312" name="inheritance1fc669c312">
+<area shape="rect" id="node1" href="#data_utils.hdf5_datasets.BaseHDF5DirectoryDataset" target="_top" title="Base class for data loaders. Returns data in T x B x C x H x W format." alt="" coords="247,153,448,179"/>
+<area shape="rect" id="node3" href="#data_utils.hdf5_datasets.BurgersDataset" target="_top" title="Order Vx, Vy, density, pressure" alt="" coords="506,5,629,31"/>
+<area shape="rect" id="node4" href="#data_utils.hdf5_datasets.CompNSDataset" target="_top" title="Order Vx, Vy, density, pressure" alt="" coords="503,55,632,80"/>
+<area shape="rect" id="node6" href="#data_utils.hdf5_datasets.DiffRe2DDataset" target="_top" title="DiffRe2DDataset" alt="" coords="502,104,633,129"/>
+<area shape="rect" id="node7" href="#data_utils.hdf5_datasets.DiffSorb1DDataset" target="_top" title="DiffSorb1DDataset" alt="" coords="496,153,639,179"/>
+<area shape="rect" id="node8" href="#data_utils.hdf5_datasets.IncompNSDataset" target="_top" title="Order Vx, Vy, &quot;particles&quot;" alt="" coords="498,203,637,228"/>
+<area shape="rect" id="node9" href="#data_utils.hdf5_datasets.PDEArenaINS" target="_top" title="Order Vx, Vy, density, pressure" alt="" coords="513,252,621,277"/>
+<area shape="rect" id="node10" href="#data_utils.hdf5_datasets.SWEDataset" target="_top" title="SWEDataset" alt="" coords="516,301,619,327"/>
+<area shape="rect" id="node2" title="An abstract class representing a :class:`Dataset`." alt="" coords="125,153,199,179"/>
+<area shape="rect" id="node5" title="Abstract base class for generic types." alt="" coords="5,153,77,179"/>
+</map>

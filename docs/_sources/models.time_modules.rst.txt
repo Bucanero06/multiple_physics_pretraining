@@ -1,0 +1,11 @@
+models.time_modules
+===================
+
+.. automodule:: models.time_modules
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+.. inheritance-diagram:: models.time_modules
+    :parts: 1
+

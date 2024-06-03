@@ -1,0 +1,7 @@
+<map id="inheritance70d9ea3286" name="inheritance70d9ea3286">
+<area shape="rect" id="node1" href="#models.shared_modules.AbsolutePositionBias" target="_top" title="From https://gist.github.com/huchenxucs/c65524185e8e35c4bcfae4059f896c16 " alt="" coords="143,5,301,31"/>
+<area shape="rect" id="node2" title="Base class for all neural network modules." alt="" coords="5,80,77,105"/>
+<area shape="rect" id="node3" href="#models.shared_modules.ContinuousPositionBias1D" target="_top" title="ContinuousPositionBias1D" alt="" coords="125,55,319,80"/>
+<area shape="rect" id="node4" href="#models.shared_modules.MLP" target="_top" title="MLP" alt="" coords="186,104,258,129"/>
+<area shape="rect" id="node5" href="#models.shared_modules.RelativePositionBias" target="_top" title="From https://gist.github.com/huchenxucs/c65524185e8e35c4bcfae4059f896c16 " alt="" coords="144,153,300,179"/>
+</map>
